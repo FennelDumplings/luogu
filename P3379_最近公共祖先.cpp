@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <cstring>
 #include <algorithm>
 #include <cmath>
@@ -121,14 +122,15 @@ int lca(int x, int y)
 int main()
 {
     init();
+    fstream fin("P3379_1.in");
 
     int N, M, S;
-    cin >> N >> M >> S;
+    fin >> N >> M >> S;
 
     for(int i = 0; i < N - 1; ++i)
     {
         int x, y;
-        cin >> x >> y;
+        fin >> x >> y;
         add(x, y);
         add(y, x);
     }
@@ -141,7 +143,7 @@ int main()
     for(int i = 0; i < M; ++i)
     {
         int a, b;
-        cin >> a >> b;
+        fin >> a >> b;
         cout << lca(a, b) << endl;
     }
     return 0;
